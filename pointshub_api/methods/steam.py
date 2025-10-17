@@ -5,7 +5,7 @@ from typing import Any, Dict
 from ..models.steam import BuyOrder, GetBalance
 
 
-class SteamEndpoints:
+class SteamMethods:
     """Handle Steam Points operations including price checking, purchasing, and
     balance management.
 
@@ -24,9 +24,9 @@ class SteamEndpoints:
                 endpoint URLs.
         """
         return {
-            "price": f"{SteamEndpoints.BASE_PATH}/price",
-            "buy": f"{SteamEndpoints.BASE_PATH}/buy",
-            "balance": f"{SteamEndpoints.BASE_PATH}/balance"
+            "price": f"{SteamMethods.BASE_PATH}/price",
+            "buy": f"{SteamMethods.BASE_PATH}/buy",
+            "balance": f"{SteamMethods.BASE_PATH}/balance"
         }
 
     def __init__(self, client):

@@ -8,10 +8,14 @@ Modules:
     client: Main client class for API interactions
     errors: Custom exception classes for API errors
     models: Pydantic models for request/response data
-    endpoints: Endpoint handlers for different API operations
+    methods: Method handlers for different API operations
+    enums: Enumeration types for constants and validation
 """
 
 from .client import PointsHubClient
+from .enums import (
+    SteamPointsConstants,
+)
 from .errors import (
     APIAuthenticationError,
     APIClientError,
@@ -33,7 +37,7 @@ __all__ = [
     "APIAuthenticationError",
     "APIServerError",
     "APIClientError",
-    "GetPrice",
+    "SteamPointsConstants",
     "BuyOrder",
     "GetBalance",
 ]

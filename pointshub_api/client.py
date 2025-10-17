@@ -5,7 +5,7 @@ from typing import Any, Dict, Optional
 import aiohttp
 from aiohttp import ClientConnectionError, ClientTimeout
 
-from .endpoints import SteamEndpoints
+from .methods import SteamMethods
 from .errors import (
     APIClientError,
     APIConnectionError,
@@ -29,7 +29,7 @@ class PointsHubClient:
     supports buying Steam Points with long operation timeouts due to potential
     supplier delays.
 
-    The client is organized into functional endpoints:
+    The client is organized into functional methods:
         - steam: Steam Points operations (price checking, purchasing, balance)
 
     Attributes:
@@ -42,7 +42,7 @@ class PointsHubClient:
             30 minutes).
         session (Optional[aiohttp.ClientSession]): The aiohttp ClientSession
             for making requests.
-        steam (SteamEndpoints): Steam Points operation endpoints.
+        steam (SteamMethods): Steam Points operation methods.
     """
 
     def __init__(
@@ -68,7 +68,7 @@ class PointsHubClient:
         self._request_timeout = request_timeout
         self.session: Optional[aiohttp.ClientSession] = None
         self._session_lock = asyncio.Lock()
-        self.steam = SteamEndpoints(self)
+        self.steam = SteamMethods(self)
 
     async def __aenter__(self):
         """Enters the async context manager.
