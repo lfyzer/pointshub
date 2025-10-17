@@ -22,8 +22,7 @@ from .errors import (
 )
 from .models import (
     BuyOrder,
-    GetBalance,
-    GetPrice,
+    GetBalance
 )
 
 __all__ = [
